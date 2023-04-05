@@ -1,0 +1,21 @@
+MODULE CalibData
+    PERS tooldata tGripper2:=[TRUE,[[0,0,270],[1,0,0,0]],[3,[0,0,100],[1,0,0,0],0,0,0]];
+    TASK PERS wobjdata wPallet:=[FALSE,TRUE,"",[[68.866,424.996,300],[1,0,0,0]],[[0,0,0],[1,0,0,0]]];
+    
+    CONST robtarget pPick:=[[350.075,117.5,144],[0,-0.707106781,0.707106781,0],[0,0,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget pHome:=[[1135,0,1165],[0,0,1,0],[0,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget pPlace:=[[912.278592303,-460.91,622.316100316],[0,0,1,0],[0,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+
+    PROC Path_10()
+        MoveL pPick,v1000,z100,tGripper2\WObj:=wPallet;
+        MoveL pHome,v1000,z100,tGripper2\WObj:=wobj0;
+        MoveL pTool2,v1000,z100,tool0\WObj:=wobj0;
+        MoveL pHome,v1000,z100,tGripper2\WObj:=wobj0;
+        MoveL pTool1,v1000,z100,tool0\WObj:=wobj0;
+        MoveL pPlace,v1000,z100,tGripper2\WObj:=wobj0;
+    ENDPROC
+    PROC Path_20()
+        MoveL pTool1,v1000,z100,tool0\WObj:=wobj0;
+        MoveL pTool2,v1000,z100,tool0\WObj:=wobj0;
+    ENDPROC
+ENDMODULE
